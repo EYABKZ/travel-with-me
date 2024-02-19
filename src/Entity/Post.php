@@ -21,7 +21,7 @@ class Post
     private ?string $author = null;
 
     #[ORM\Column(length: 255)]
-    #[Assert\NotBlank(message: "Le titre ne peut pas être vide")]
+  #[Assert\NotBlank(message: "Le titre ne peut pas être vide")]
     #[Assert\Length(max: 255, maxMessage: "Le titre ne peut pas dépasser {{ limit }} caractères")]
     private ?string $title = null;
 
@@ -130,5 +130,9 @@ class Post
         }
 
         return $this;
+    }
+    public function __toString(): string
+    {
+        return $this->title;
     }
 }
